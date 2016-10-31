@@ -1,7 +1,7 @@
 {
-  "name": "koa-newrelic",
+  "name": "koa2-newrelic",
   "description": "Koa middleware to allow Newrelic monitor Koa applications",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "homepage": "https://github.com/AfterShip/koa-newrelic",
   "author": {
     "name": "AfterShip",
@@ -27,8 +27,8 @@
     "chai": "^3.5.0",
     "eslint": "^1.10.3",
     "eslint-config-aftership": "^1.5.0",
-    "koa": "^1.2.0",
-    "koa-router": "^5.4.0",
+    "koa": "^2.0.0",
+    "koa-router": "^7.0.1",
     "mocha": "^2.3.4",
     "supertest": "^1.2.0"
   },

@@ -150,17 +150,16 @@ module.exports = function (newrelic, opts) {
 		newrelic.setTransactionName(parseTransactionName(method, path));
 	}
 
-	return function* koaNewrelic(next) {
-		let ctx = this;
+	return async function koaNewrelic(ctx, next) {
 
-		yield next;
-
-		if (ctx._matchedRoute) {
+		await next;
+		// https://github.com/alexmingoia/koa-router/issues/290
+		if (ctx.url) {
 			// not macthed to any routes
-			if (ctx._matchedRoute === '(.*)') {
+			if (ctx.url === '(.*)') {
 				return;
 			}
-			setTransactionName(ctx.method, ctx._matchedRoute);
+			setTransactionName(ctx.method, ctx.url);
 			return;
 		}
 
