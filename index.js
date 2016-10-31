@@ -152,14 +152,13 @@ module.exports = function (newrelic, opts) {
 
 	return async function koaNewrelic(ctx, next) {
 
-		await next;
 		// https://github.com/alexmingoia/koa-router/issues/290
-		if (ctx.url) {
+		if (ctx.path) {
 			// not macthed to any routes
-			if (ctx.url === '(.*)') {
-				return;
+			if (ctx.path !== '(.*)') {
+				setTransactionName(ctx.method, ctx.path);
 			}
-			setTransactionName(ctx.method, ctx.url);
+			await next();
 			return;
 		}
 
@@ -172,6 +171,7 @@ module.exports = function (newrelic, opts) {
 					let extensions = Array.isArray(opts.staticExtensions) ? opts.staticExtensions : DEFAULT_STATIC_EXTENSIONS;
 					if (extensions.indexOf(ext) !== -1) {
 						setTransactionName(ctx.method, '/*.' + ext);
+						await next();
 						return;
 					}
 				}
