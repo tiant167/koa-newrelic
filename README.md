@@ -1,4 +1,9 @@
-# koa-newrelic
+# koa2-newrelic
+Forked from [koa-newrelic](https://github.com/AfterShip/koa-newrelic).
+Update middleware to work with koa2 and koa-router@7.x
+koa-router@7.x change `_matchedRoute` function to `ctx.url`.
+
+---
 Koa middleware to allow Newrelic monitor Koa applications like Express. Supported features:
  - Name transactions according to router (Only support [`koa-router`](https://github.com/alexmingoia/koa-router))
  - Group and name transactions for static resources according to file extensions
