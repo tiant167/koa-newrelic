@@ -1,7 +1,13 @@
 # koa2-newrelic
 Forked from [koa-newrelic](https://github.com/AfterShip/koa-newrelic).
+
 Update middleware to work with koa2 and koa-router@7.x
+
 koa-router@7.x change `_matchedRoute` function to `ctx.url`.
+
+```
+npm install koa2-newrelic
+```
 
 ---
 Koa middleware to allow Newrelic monitor Koa applications like Express. Supported features:
