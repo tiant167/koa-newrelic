@@ -1,7 +1,7 @@
 {
   "name": "koa2-newrelic",
   "description": "Koa middleware to allow Newrelic monitor Koa applications",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "homepage": "https://github.com/AfterShip/koa-newrelic",
   "author": {
     "name": "AfterShip",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/AfterShip/koa-newrelic.git"
+    "url": "git://github.com/tiant67/koa-newrelic.git"
   },
   "bugs": {
-    "url": "https://github.com/AfterShip/koa-newrelic/issues"
+    "url": "https://github.com/tiant67/koa-newrelic/issues"
   },
   "main": "index.js",
   "engines": {
-    "node": ">= 4.2"
+    "node": ">= 7.0"
   },
   "scripts": {
     "lint": "node_modules/eslint/bin/eslint.js .",
