@@ -150,16 +150,15 @@ module.exports = function (newrelic, opts) {
 		newrelic.setTransactionName(parseTransactionName(method, path));
 	}
 
-	return async function koaNewrelic(ctx, next) {
+	return function koaNewrelic(ctx, next) {
 
 		// https://github.com/alexmingoia/koa-router/issues/290
 		if (ctx.path) {
+			// origin is _matchedRoute, but koa-router@7.0.1 hasn't this property
 			// not macthed to any routes
 			if (ctx.path !== '(.*)') {
 				setTransactionName(ctx.method, ctx.path);
 			}
-			await next();
-			return;
 		}
 
 		// group static resources
@@ -171,11 +170,10 @@ module.exports = function (newrelic, opts) {
 					let extensions = Array.isArray(opts.staticExtensions) ? opts.staticExtensions : DEFAULT_STATIC_EXTENSIONS;
 					if (extensions.indexOf(ext) !== -1) {
 						setTransactionName(ctx.method, '/*.' + ext);
-						await next();
-						return;
 					}
 				}
 			}
 		}
+		return next();
 	};
 };

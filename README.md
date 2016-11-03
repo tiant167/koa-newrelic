@@ -76,7 +76,7 @@ app.use(koaNewrelic)
 	  Middleware serve
 
 	/*.css#GET
-	  Middleware serve  
+	  Middleware serve
 */
 ```
 
