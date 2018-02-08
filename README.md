@@ -1,12 +1,12 @@
 # koa2-newrelic
-Use [koa-newrelic](https://github.com/AfterShip/koa-newrelic).
+forked from [koa-newrelic](https://github.com/AfterShip/koa-newrelic).
 
-koa-router fixed `_matchedRoute` issue in 7.1.
+## Difference
+use `ctx.path` instead of `ctx._matchedRoute`.
 
-Update middleware to work with koa2 and koa-router@7.0.x
+In our application, we prefer the final url instead of router path string when submit to newrelic.
 
-koa-router@7.0.x change `_matchedRoute` function to `ctx.url`.
-
+## Installation
 ```
 npm install koa2-newrelic
 ```
